@@ -11,6 +11,7 @@ Use a raspberry pi to make my phone a wifi hotspot.  Because bits are bits.
         sudo apt upgrade -y
         sudo apt autoremove
         sudo apt install unattended-upgrades hostapd isc-dhcp-server iptables-persistent
+        ```
     1. Edit `/etc/dhcp/dhcpd.conf`
         ```
         # Comment out these lines
@@ -21,10 +22,10 @@ Use a raspberry pi to make my phone a wifi hotspot.  Because bits are bits.
         authoritative
         
         # Add this to the end of the file
-        subnet 192.168.42.0 netmask 255.255.255.0 {
-          range 192.168.42.10 192.168.42.50;
-          option broadcast-address 192.168.42.255;
-          option routers 192.168.42.1;
+        subnet 192.168.8.0 netmask 255.255.255.0 {
+          range 192.168.8.10 192.168.8.50;
+          option broadcast-address 192.168.8.255;
+          option routers 192.168.8.1;
           default-lease-time 600;
           max-lease-time 7200;
           option domain-name "local";
@@ -42,7 +43,7 @@ Use a raspberry pi to make my phone a wifi hotspot.  Because bits are bits.
         # auto wlan0
         allow-hotplug wlan0
         iface wlan0 inet static
-          address 192.168.42.1
+          address 192.168.8.1
           netmask 255.255.255.0
         ```
     1. Edit `/etc/hostapd/hostapd.conf`
