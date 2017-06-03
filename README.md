@@ -2,15 +2,16 @@
 
 Use a raspberry pi to make my phone a wifi hotspot.  Because bits are bits.
 
-1. Tethering. `sudo dhclient usb0`
-1. Look into udev rules to make that automatic.
+1. ~~Tethering. `sudo dhclient usb0`~~ (doesn't look necessary to me)
+1. ~~Look into udev rules to make that automatic.~~
 1. [Adafruit has instructions for the rest](https://cdn-learn.adafruit.com/downloads/pdf/setting-up-a-raspberry-pi-as-a-wifi-access-point.pdf)
-    1. `sudo apt-get update`
-    1. `sudo apt-get upgrade -y`
-    1. `sudo apt-get autoremove`
-    1. `sudo apt-get install unattended-upgrades hostapd isc-dhcp-server iptables-persistent`
+    1. Update/upgrade/install
+        ```
+        sudo apt update
+        sudo apt upgrade -y
+        sudo apt autoremove
+        sudo apt install unattended-upgrades hostapd isc-dhcp-server iptables-persistent
     1. Edit `/etc/dhcp/dhcpd.conf`
-    
         ```
         # Comment out these lines
         #option domain-name "example.org";
@@ -30,8 +31,7 @@ Use a raspberry pi to make my phone a wifi hotspot.  Because bits are bits.
           option domain-name-servers 8.8.8.8, 8.8.4.4;
         }
         ```
-    1. Edit `/etc/default/isc-dhcp-server`
-    
+    1. Edit `/etc/default/isc-dhcp-server
         ```
         # Change this line
         INTERFACES="wlan0"
