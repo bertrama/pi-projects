@@ -5,5 +5,6 @@ apt upgrade -y
 apt autoremove
 apt install \
   unattended-upgrades \
-  hostapd isc-dhcp-server \
+  hostapd \
+  isc-dhcp-server \
   iptables-persistent
