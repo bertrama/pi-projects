@@ -8,6 +8,8 @@ And from [Setting up automatic updates](https://blog.dantup.com/2016/04/setting-
 
 And from [Save power](https://github.com/geerlingguy/raspberry-pi-dramble/issues/58)
 
+And from [Disable sound](http://www.instructables.com/id/Disable-the-Built-in-Sound-Card-of-Raspberry-Pi/)
+
 1. [Update/upgrade/install](setup.sh)
     ```
     sudo apt update
@@ -116,4 +118,8 @@ And from [Save power](https://github.com/geerlingguy/raspberry-pi-dramble/issues
     ```
     # Disable HDMI
     /usr/bin/tvservice -o
+    ```
+1. [Disable sound in /etc/modprobe.d/alsa-blacklist.conf](etc/modprobe/alsablacklist.conf)
+    ```
+    blacklist snd_bcm2835
     ```
