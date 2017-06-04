@@ -6,6 +6,8 @@ Extracted from [Adafruit has instructions for the rest](https://cdn-learn.adafru
 
 And from [Setting up automatic updates](https://blog.dantup.com/2016/04/setting-up-automatic-updates-on-raspberry-pi-raspbian-jessie/)
 
+And from [Save power](https://github.com/geerlingguy/raspberry-pi-dramble/issues/58)
+
 1. [Update/upgrade/install](setup.sh)
     ```
     sudo apt update
@@ -109,4 +111,9 @@ And from [Setting up automatic updates](https://blog.dantup.com/2016/04/setting-
     ```
     sudo update-rc.d hostapd enable
     sudo update-rc.d isc-dhcp-server enable
+    ```
+1. [Disable hdmi in /etc/rc.local](etc/rc.local)
+    ```
+    # Disable HDMI
+    /usr/bin/tvservice -o
     ```
