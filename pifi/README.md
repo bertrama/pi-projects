@@ -4,6 +4,8 @@ Use a raspberry pi to make my phone a wifi hotspot.  Because bits are bits.
 
 Extracted from [Adafruit has instructions for the rest](https://cdn-learn.adafruit.com/downloads/pdf/setting-up-a-raspberry-pi-as-a-wifi-access-point.pdf)
 
+And from [Setting up automatic updates](https://blog.dantup.com/2016/04/setting-up-automatic-updates-on-raspberry-pi-raspbian-jessie/)
+
 1. [Update/upgrade/install](setup.sh)
     ```
     sudo apt update
@@ -77,6 +79,20 @@ Extracted from [Adafruit has instructions for the rest](https://cdn-learn.adafru
     ```
     # Add the line
     net.ipv4.ip_forward=1
+    ```
+1. Edit [/etc/apt/apt.conf.d/50unattended-upgrades](etc/apt/apt.conf.d/50unattended-upgrades)
+    ```
+    // Uncomment this one
+          "o=Raspbian,n=jessie";
+
+    // Change this one
+    Unattended-Upgrade::Remove-Unused-Dependencies "true";
+
+    ```
+1. Edit [/etc/apt/apt.conf.d/20auto-upgrades](etc/apt/apt.conf.d/20auto-upgrades)
+    ```
+    APT::Periodic::Update-Package-Lists "1";
+    APT::Periodic::Unattended-Upgrade "1";
     ```
 1. [Setup iptables](wrapup.sh)
     ```
