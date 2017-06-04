@@ -11,7 +11,11 @@ And from [Setting up automatic updates](https://blog.dantup.com/2016/04/setting-
     sudo apt update
     sudo apt upgrade -y
     sudo apt autoremove
-    sudo apt install unattended-upgrades hostapd isc-dhcp-server iptables-persistent
+    sudo apt install \
+      unattended-upgrades \
+      hostapd \
+      isc-dhcp-server \
+      iptables-persistent
     ```
 1. Edit [/etc/dhcp/dhcpd.conf](etc/dhcp/dhcpd.conf)
     ```
@@ -67,12 +71,12 @@ And from [Setting up automatic updates](https://blog.dantup.com/2016/04/setting-
     ```
 1. Edit [/etc/default/hostapd](etc/default/hostapd)
     ```
-    #Change the line
+    # Change the line
     DAEMON_CONF="/etc/hostapd/hostapd.conf"
     ```
 1. Edit [/etc/init.d/hostapd](etc/init.d/hostapd)
     ```
-    Change the line
+    # Change the line
     DAEMON_CONF="/etc/hostapd/hostapd.conf"
     ```
 1. Edit [/etc/sysctl.conf](etc/sysctl.conf)
